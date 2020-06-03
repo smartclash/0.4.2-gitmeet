@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Create a report to help us improve
+about: Report a bug you've encountered in the project
 title: ''
 labels: bug, awaiting triage
 assignees: ''
@@ -24,14 +24,15 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem else remove this section.
 
 **Desktop (please complete the following information else remove this section.):**
- - OS: [e.g. iOS]
+
+ - OS: [e.g. macOS, Windows, Linux]
  - Browser [e.g. chrome, safari]
  - Version [e.g. 22]
 
 **Smartphone (please complete the following information else remove this section.):**
  - Device: [e.g. iPhone6]
  - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
+ - Browser [e.g. Chrome, Firefox, Safari]
  - Version [e.g. 22]
 
 **Additional context**
