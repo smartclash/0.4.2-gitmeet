@@ -1,12 +1,23 @@
+import * as dotenv from 'dotenv';
 import { Strategy } from 'passport-github';
+import User from '../../Database/Models/User';
 
+dotenv.config();
 const GithubStrategy = new Strategy({
     clientID: process.env.GITHUB_CLIENT,
     clientSecret: process.env.GITHUB_SECRET,
     callbackURL: process.env.HOST + 'auth/callback',
-}, (token, refresh, profile, done) => {
-    console.log(profile);
-    return done(null, profile);
+    scope: 'user:email'
+}, async (token, refresh, profile, done) => {
+    let user: any = await User.findOne({ github: profile.id });
+    if (!user) {
+        user = await new User({
+            github: profile.id,
+            username: profile.displayName,
+            email: profile.emails[0].value,
+        }).save();
+    }
+    done(null, user);
 });
 
 export default GithubStrategy;

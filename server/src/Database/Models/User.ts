@@ -19,7 +19,7 @@ const UserSchema = new mongoose.Schema({
     },
     city: {
         type: String,
-        required: true,
+        required: false,
     },
 });
 const User = mongoose.model('User', UserSchema);

@@ -8,6 +8,6 @@ const CONNECTION_URL: string = 'mongodb://'
     + process.env.DB_HOST + ':'
     + process.env.DB_PORT + '/'
     + process.env.DB_NAME;
-mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 export default mongoose;
