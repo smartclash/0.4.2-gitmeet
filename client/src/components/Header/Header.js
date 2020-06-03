@@ -1,13 +1,14 @@
 import React from "react";
 import "./Header.css";
 import { Avatar, ButtonDropdown, Spacer } from '@zeit-ui/react';
+import Headroom from 'react-headroom';
 
 export default function Header() {
   
   const url = 'https://zeit.co/api/www/avatar/?u=evilrabbit&s=160';//test profilepic
 
   return (
-    <div>
+    <Headroom>
       <nav className="navbar">
         <div className="container">
       
@@ -30,6 +31,6 @@ export default function Header() {
           </div>
         </div>
       </nav>
-    </div>
+    </Headroom>
   )}
   
