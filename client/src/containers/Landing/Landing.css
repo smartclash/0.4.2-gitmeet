@@ -1,0 +1,21 @@
+/* .landing{
+    background-image: url("../../assets/topography.svg");
+} */
+
+.landingCTA{
+    height: 80vh;
+    margin-top: auto;
+    overflow: auto;
+}
+
+.landingCTA {
+scrollbar-width: none;
+}
+
+.landingCTA::-webkit-scrollbar {
+display: none;
+}
+
+.landingCard{
+    padding: 0 10em;
+}
