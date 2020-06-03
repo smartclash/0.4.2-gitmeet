@@ -2,6 +2,10 @@
     background-image: url("../../assets/topography.svg");
 } */
 
+.landing {
+    padding: 3em;
+}
+
 .landingCTA{
     height: 80vh;
     margin-top: auto;
@@ -19,3 +23,10 @@ display: none;
 .landingCard{
     padding: 0 10em;
 }
+
+@media screen and (max-width: 1280px) {
+    .landingCTA {
+      display: none;
+    }
+  }
+  
