@@ -4,8 +4,8 @@ import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <ZeitProvider>      // ---> Base provider
-    <CssBaseline />     // ---> normalize styles
+    <ZeitProvider>
+    <CssBaseline />
       <Header />
       <p>
         GitMeet!
