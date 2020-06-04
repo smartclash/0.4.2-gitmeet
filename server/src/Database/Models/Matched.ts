@@ -9,6 +9,14 @@ const MatchedSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    staus: {
+        type: Boolean,
+        required: true,
+    },
 });
 const Matched = mongoose.model('Matched', MatchedSchema);
 

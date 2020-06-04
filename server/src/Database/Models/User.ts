@@ -19,8 +19,16 @@ const UserSchema = new mongoose.Schema({
     },
     city: {
         type: String,
-        required: true,
+        required: false,
     },
+    avatar: {
+        type: String,
+        required: false,
+    },
+    repos: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Repo'
+    }]
 });
 const User = mongoose.model('User', UserSchema);
 
