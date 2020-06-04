@@ -1,4 +1,5 @@
 import React, { Component, Profiler } from "react";
+import "./cardFooterInfo.css";
 import { Spacer, Text, Row, Link, Avatar } from '@zeit-ui/react';
 
 export default class CardFooterInfo extends Component {
@@ -7,23 +8,22 @@ export default class CardFooterInfo extends Component {
         
         const url = 'https://zeit.co/api/www/avatar/?u=evilrabbit&s=160';//test profilepic
         
-        state = {
-            profile: [
-            {
-                id: 1,
-                name: 'John Dodo',
-                email: 'joanh@dodomail.com',
-                location: 'Chandigarh'
-            }
-        ]};
+        const name = 'Kartik Choudhary';
 
         return (
-            <Row>
-                <Link color target="_blank" href="https://github.com/zeit-ui/react">
+            <div className="cardFooter">
+                <div className="cardFooterLeft">
                     <Avatar size="medium" src={url}/>
-                    <Text>{profile.name}</Text>
+
+                    <Link color target="_blank" href="https://github.com/kartik918">
+                        <Text className="profileName">{name}</Text>
+                    </Link>
+                </div>
+
+                <Link className="cardFooterRight" color target="_blank" href="mailto:kartikc.918@gmail.com">
+                    <Text>kartikc.918@gmail.com</Text>
                 </Link>
-            </Row>
+            </div>
         )
     }
 }
