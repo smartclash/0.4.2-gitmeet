@@ -1,16 +1,59 @@
 import React from "react";
+import Mdcard from "../../components/mdcard/Mdcard";
 import "./Meet.css";
-import { Col, Spacer, Text, Card, Row } from '@zeit-ui/react';
+import { Col, Spacer, Text, Card, Row, Grid } from '@zeit-ui/react';
 
 export default function Meet() {
-    const projectsFound = false;
+    
+    const projectsFound = true;
+    const initialSource = `
+        # Live demo
+        Changes are automatically rendered as you type.
+        ## Table of Contents
+        * Implements [GitHub Flavored Markdown](https://github.github.com/gfm/)
+        * Renders actual, "native" React DOM elements
+        * Allows you to escape or skip HTML (try toggling the checkboxes above)
+        * If you escape or skip the HTML, no \`dangerouslySetInnerHTML\` is used! Yay!
+        ## HTML block below
+        <blockquote>
+        This blockquote will change based on the HTML settings above.
+        </blockquote>
+        ## How about some code?
+        \`\`\`js
+        var React = require('react');
+        var Markdown = require('react-markdown');
+        React.render(
+        <Markdown source="# Your markdown here" />,
+        document.getElementById('content')
+        );
+        \`\`\`
+        Pretty neat, eh?
+        ## Tables?
+        | Feature   | Support |
+        | --------- | ------- |
+        | tables    | ✔ |
+        | alignment | ✔ |
+        | wewt      | ✔ |
+        ## More info?
+        Read usage information and more on [GitHub](//github.com/rexxars/react-markdown)
+        ---------------
+        A component by [Espen Hovlandsdal](https://espen.codes/)
+    `
+
     if(projectsFound){
         return (
-            <Col span={22} align="middle">
-                <Text h2 type="default">
-                    Found the coolest projects in your area!
-                </Text>
-            </Col>
+            <div className="containerMeet">
+                <Col align="middle">
+                <Spacer y={1.5}/>
+                    <Text h2 type="default">
+                        Found the coolest projects in your area!
+                    </Text>
+                <Spacer y={1.5}/>
+                    <Card shadow id="md-container">
+                        <Mdcard input={initialSource}/>
+                    </Card>
+                </Col>
+            </div>
         )
     }
     return(
