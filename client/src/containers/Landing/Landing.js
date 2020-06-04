@@ -50,7 +50,7 @@ export default function Landing() {
             We match local developers create connections through code.
           </Text>
           <Spacer y={1.5}/>
-          <Button type="secondary" size="medium" ghost>Login with github</Button>
+          <Button type="secondary" size="medium" ghost>Login with GitHub</Button>
           <Spacer y={1.5}/>
         </Card>
         </Col>
