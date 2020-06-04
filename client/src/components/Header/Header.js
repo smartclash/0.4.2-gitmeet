@@ -14,7 +14,7 @@ export default function Header() {
       
           <div className="navbar-header">
             <a href="#">
-              <h4>Git<span>Meet!</span></h4>
+              <h4>Git<span>Meet</span></h4>
             </a>    
           </div>
       

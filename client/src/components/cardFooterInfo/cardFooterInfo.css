@@ -1,0 +1,19 @@
+.profileName{
+    padding-left: 15px;
+    padding-top: 7px;
+}
+
+.cardFooter{
+    width: 100%;
+}
+
+.cardFooterRight{
+    float: right;
+    padding-top: 8px;
+}
+
+.cardFooterLeft{
+    float: left;
+    text-align: left;
+}
+
