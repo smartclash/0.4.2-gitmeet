@@ -1,13 +1,21 @@
 import React, { Component } from "react";
-import Marked from "marked";
+import * as showdown from 'showdown';
 
 export default class Mdcard extends Component {
-
     render() {
+        const conv = new showdown.Converter({
+            tables: true,
+            strikethrough: true,
+            headerLevelStart: 2,
+            tasklists: true,
+            ghMentions: true,
+            openLinksInNewWindow: true,
+            emoji: true,
+
+        });
+
         return (
-            <div>
-                <div dangerouslySetInnerHTML={{__html: Marked(this.props.input) }} />
-            </div>
+            <div dangerouslySetInnerHTML={{__html: conv.makeHtml(this.props.input) }} />
         )
     }
 }
