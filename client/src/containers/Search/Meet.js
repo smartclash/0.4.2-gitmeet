@@ -1,8 +1,9 @@
 import React from "react";
 import Mdcard from "../../components/mdcard/Mdcard";
-import "./Meet.css";
-import { Col, Spacer, Text, Card, Row, Link } from '@zeit-ui/react';
 import CardFooterInfo from "../../components/cardFooterInfo/cardFooterInfo";
+import MeetButton from "../../components/meetButton/meetButton";
+import "./Meet.css";
+import { Col, Spacer, Text, Card, Row,} from '@zeit-ui/react';
 
 export default function Meet() {
     
@@ -43,7 +44,6 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
     if(projectsFound){
         return (
             <div className="containerMeet">
-                <Col align="middle">
 
                 <Spacer y={1.5}/>
 
@@ -60,9 +60,12 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
                         </Card.Footer>
                     </Card>
 
-                <Spacer y={1.5}/>
+                <Spacer y={3}/>
 
-                </Col>
+                <MeetButton />
+
+                <Spacer y={6}/>
+
             </div>
         )
     }
