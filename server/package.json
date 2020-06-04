@@ -4,27 +4,35 @@
   "description": "",
   "main": "dist/App.js",
   "scripts": {
+    "start": "node dist/App.js",
     "compile": "tsc -p tsconfig.json",
     "compile-watch": "tsc -w -p tsconfig.json",
     "nodemon": "nodemon .",
     "postinstall": "npm run compile && cp .env.example .env"
   },
-  "author": "",
+  "author": "xXAlphaManXx <yo@alphaman.me>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "github-api": "^3.3.0",
+    "lodash": "^4.17.15",
     "mongoose": "^5.9.16",
+    "node-ipinfo": "^1.0.1",
     "passport": "^0.4.1",
     "passport-github": "^1.1.0",
+    "passport-jwt": "^4.0.0",
     "validator": "^13.0.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/express": "^4.17.6",
+    "@types/lodash": "^4.14.155",
     "@types/mongoose": "^5.7.21",
     "@types/passport": "^1.0.3",
+    "@types/passport-github": "^1.1.5",
+    "@types/passport-jwt": "^3.0.3",
     "@types/validator": "^13.0.0",
     "nodemon": "^2.0.4",
     "typescript": "^3.9.3"
