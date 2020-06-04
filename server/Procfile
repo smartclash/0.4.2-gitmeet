@@ -1,3 +1,0 @@
-install: npm install
-compile: npm run compile
-web: node dist/App.js
