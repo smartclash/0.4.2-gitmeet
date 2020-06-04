@@ -8,7 +8,7 @@ const route: Router = Router();
 
 route.get('/', showSomething);
 
-route.get('/auth/err', showSomething);
+route.get('/auth/error', showSomething);
 route.get('/auth/jwt', passport.authenticate('jwt'), showSomething);
 route.get('/auth/github', passport.authenticate('github'));
 route.get('/auth/callback', passport.authenticate('github', {
@@ -18,8 +18,10 @@ route.get('/auth/callback', passport.authenticate('github', {
 
 route.get('/user/repos', passport.authenticate('jwt'), RepoController.showRepos);
 
-route.post('/user/repo/help-wanted', passport.authenticate('jwt'));
-route.post('/user/repo/:id/accepted', passport.authenticate('jwt'));
-route.post('/user/repo/:id/rejected', passport.authenticate('jwt'));
+route.get('/user/match/repo', passport.authenticate('jwt'));
+route.get('/user/match/repo/:id/accepted', passport.authenticate('jwt'), RepoController.accepted);
+route.get('/user/match/repo/:id/rejected', passport.authenticate('jwt'), RepoController.rejected);
+
+route.post('/user/repo/help-wanted', passport.authenticate('jwt'), RepoController.helpWanted);
 
 export default route;
