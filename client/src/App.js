@@ -7,7 +7,7 @@ import Meet from "./containers/Search/Meet";
 function App() {
   return (
     <ZeitProvider>
-    <CssBaseline />
+      <CssBaseline />
       <Header />
       <Meet />
     </ZeitProvider>
