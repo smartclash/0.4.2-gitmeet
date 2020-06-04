@@ -2,7 +2,10 @@ import * as dotenv from 'dotenv';
 import { Strategy } from 'passport-github';
 import User from '../../Database/Models/User';
 
-dotenv.config();
+if (process.env.DEVM) {
+    dotenv.config();
+}
+
 const GithubStrategy = new Strategy({
     clientID: process.env.GITHUB_CLIENT,
     clientSecret: process.env.GITHUB_SECRET,

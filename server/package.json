@@ -4,12 +4,13 @@
   "description": "",
   "main": "dist/App.js",
   "scripts": {
+    "start": "node dist/App.js",
     "compile": "tsc -p tsconfig.json",
     "compile-watch": "tsc -w -p tsconfig.json",
     "nodemon": "nodemon .",
     "postinstall": "npm run compile && cp .env.example .env"
   },
-  "author": "",
+  "author": "xXAlphaManXx <yo@alphaman.me>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",

@@ -2,7 +2,10 @@ import * as dotenv from 'dotenv';
 import { Strategy, ExtractJwt } from 'passport-jwt';
 import User from '../../Database/Models/User';
 
-dotenv.config();
+if (process.env.DEVM) {
+    dotenv.config();
+}
+
 const JWTStrategy = new Strategy({
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: process.env.APP_KEY

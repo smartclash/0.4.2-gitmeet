@@ -1,7 +1,10 @@
 import * as dotenv from 'dotenv';
 import * as mongoose from 'mongoose';
 
-dotenv.config();
+if (process.env.DEVM) {
+    dotenv.config();
+}
+
 const CONNECTION_URL: string = 'mongodb://'
     + process.env.DB_USER + ':'
     + process.env.DB_PASS + '@'

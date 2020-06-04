@@ -4,7 +4,10 @@ import * as express from 'express';
 import Mongoose from './Database/Mongoose';
 import passport from './Passport/Passport';
 
-dotenv.config();
+if (process.env.DEVM) {
+    dotenv.config();
+}
+
 const app: express.Application = express();
 Mongoose.connection.on('open', () => console.log('Connected to database'));
 
