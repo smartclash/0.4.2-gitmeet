@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Mdcard.css";
 import * as showdown from 'showdown';
 
 export default class Mdcard extends Component {
@@ -15,7 +16,7 @@ export default class Mdcard extends Component {
         });
 
         return (
-            <div dangerouslySetInnerHTML={{__html: conv.makeHtml(this.props.input) }} />
+            <div className="mdCard" dangerouslySetInnerHTML={{__html: conv.makeHtml(this.props.input) }} />
         )
     }
 }
