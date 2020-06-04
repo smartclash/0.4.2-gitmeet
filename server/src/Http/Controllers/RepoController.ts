@@ -1,11 +1,13 @@
+//@ts-nocheck
+
 import * as _ from 'lodash';
 import * as Github from 'github-api';
 import { Request, Response } from 'express';
 import Repo from '../../Database/Models/Repo';
-import Matched from '../../Database/Models/Matched';
+import User from '../../Database/Models/User';
 import mongoose from '../../Database/Mongoose';
 
-export const showRepos = async (req: Request, res: Response) => {
+export const showReposForHelp = async (req: Request, res: Response) => {
     let repos = [];
     const gh = new Github();
     //@ts-ignore
@@ -24,39 +26,20 @@ export const showRepos = async (req: Request, res: Response) => {
     return res.json(repos);
 }
 
+
 export const accepted = async (req: Request, res: Response) => {
     const object = mongoose.Types.ObjectId;
-    const repo = await Repo.findOne({ github: req.params['id'] }).populate('owner').lean();
+    const repo = await Repo.findOne({ github: req.params['id'] }).populate('owner');
     if (!repo) return res.status(404).json({
         message: 'We could not find the repository you accepted to get matched'
     });
 
-    await new Matched({
-        repo: new object(repo._id), status: true,
-        //@ts-ignore
-        matched: new object(req.user._id), owner: new object(repo.owner._id)
-    }).save();
+    repo.matched = object(req.user._id);
+    repo.accepted = true;
+    await repo.save();
 
     return res.json({
         message: 'Matched you successfully'
-    });
-}
-
-export const rejected = async (req: Request, res: Response) => {
-    const object = mongoose.Types.ObjectId;
-    const repo = await Repo.findOne({ github: req.params['id'] }).populate('owner').lean();
-    if (!repo) return res.status(404).json({
-        message: 'We could not find the repository you accepted to get matched'
-    });
-
-    await new Matched({
-        repo: new object(repo._id), status: false,
-        //@ts-ignore
-        matched: new object(req.user._id), owner: new object(repo.owner._id)
-    }).save();
-
-    return res.json({
-        message: 'Rejected the repo successfully'
     });
 }
 
@@ -69,11 +52,25 @@ export const helpWanted = async (req: Request, res: Response) => {
     await new Repo({
         github: req.body?.id, name: req.body?.name, description: req.body?.description,
         language: req.body?.language, url: req.body?.url, license: req.body?.license,
-        //@ts-ignore
         owner: new mongoose.Types.ObjectId(req.user._id),
     }).save();
 
     return res.json({
         message: 'Successfully requested help for this repo'
     });
+}
+
+export const showRepoToMentor = async (req: Request, res: Response) => {
+    let repos = [];
+    const users = await User.find({ city: req.user.city }).populate('repos').lean();
+
+    _.each(users, user => {
+        let userRepos = user.repos;
+        if (!userRepos) return ;
+
+        const filteredRepo = _.filter(userRepos, repo => !repo.matched || repo._id === req.params['id']);
+        repos.push(filteredRepo);
+    });
+
+    return res.json(repos);
 }

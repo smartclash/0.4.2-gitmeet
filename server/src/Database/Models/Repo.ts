@@ -26,6 +26,15 @@ const RepoSchema = new mongoose.Schema({
     license: {
         type: String,
     },
+    matched: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: false,
+    },
+    accepted: {
+        type: Boolean,
+        required: false,
+    },
 });
 const Repo = mongoose.model('Repo', RepoSchema);
 

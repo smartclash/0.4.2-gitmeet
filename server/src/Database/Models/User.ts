@@ -25,6 +25,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
+    repos: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Repo'
+    }]
 });
 const User = mongoose.model('User', UserSchema);
 

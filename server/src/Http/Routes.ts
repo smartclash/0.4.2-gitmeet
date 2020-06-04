@@ -16,11 +16,10 @@ route.get('/auth/callback', passport.authenticate('github', {
     failureRedirect: '/auth/error',
 }), AuthController.github);
 
-route.get('/user/repos', passport.authenticate('jwt'), RepoController.showRepos);
+route.get('/user/repos', passport.authenticate('jwt'), RepoController.showReposForHelp);
 
-route.get('/user/match/repo', passport.authenticate('jwt'));
+route.get('/user/match/repo', passport.authenticate('jwt'), RepoController.showRepoToMentor);
 route.get('/user/match/repo/:id/accepted', passport.authenticate('jwt'), RepoController.accepted);
-route.get('/user/match/repo/:id/rejected', passport.authenticate('jwt'), RepoController.rejected);
 
 route.post('/user/repo/help-wanted', passport.authenticate('jwt'), RepoController.helpWanted);
 
