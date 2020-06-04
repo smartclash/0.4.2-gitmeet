@@ -21,3 +21,9 @@ export const github = async (req: Request, res: Response) => {
         city: realIPInfo.city
     });
 }
+
+export const error = (req: Request, res: Response) => {
+    res.status(401).json({
+        message: 'Could not log you in'
+    });
+}

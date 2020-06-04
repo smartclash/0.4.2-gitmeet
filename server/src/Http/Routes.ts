@@ -1,15 +1,14 @@
 import { Router } from 'express';
 import passport from '../Passport/Passport';
-import { showSomething } from './Controllers/DummyController';
+import { index } from './Controllers/HomeController';
 import * as AuthController from './Controllers/AuthController';
 import * as RepoController from './Controllers/RepoController';
 
 const route: Router = Router();
 
-route.get('/', showSomething);
+route.get('/', index);
 
-route.get('/auth/error', showSomething);
-route.get('/auth/jwt', passport.authenticate('jwt'), showSomething);
+route.get('/auth/error', AuthController.error);
 route.get('/auth/github', passport.authenticate('github'));
 route.get('/auth/callback', passport.authenticate('github', {
     session: false,
