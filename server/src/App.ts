@@ -11,6 +11,11 @@ if (process.env.NODE_ENV !== 'production') {
 const app: express.Application = express();
 Mongoose.connection.on('open', () => console.log('Connected to database'));
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 app.use(express.json());
 app.use(passport.initialize());
 app.use(routes);

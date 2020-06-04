@@ -1,9 +1,9 @@
 import React from "react";
 import "./Landing.css";
-import { Col, Row, Button, Display, Image, Spacer, Text, Card } from '@zeit-ui/react';
+import { Col, Row, Button, Display, Image, Spacer, Text, Card, Link } from '@zeit-ui/react';
+import { Link as RLink } from "react-router-dom";
 
 export default function Landing() {
-  
   return (
     <div className="landing">
       <Row>
@@ -50,7 +50,9 @@ export default function Landing() {
             We match local developers create connections through code.
           </Text>
           <Spacer y={1.5}/>
-          <Button type="secondary" size="medium" ghost>Login with GitHub</Button>
+            <Link href="https://gitmeet.herokuapp.com/auth/github">
+                <Button type="secondary" size="medium" ghost>Login with GitHub</Button>
+            </Link>
           <Spacer y={1.5}/>
         </Card>
         </Col>

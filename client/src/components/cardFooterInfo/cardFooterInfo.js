@@ -5,9 +5,7 @@ import { Text, Link, User } from '@zeit-ui/react';
 export default class CardFooterInfo extends Component {
     
     render() {
-        
         const url = 'https://zeit.co/api/www/avatar/?u=evilrabbit&s=160';//test profilepic
-        
         const name = 'Kartik Choudhary';
 
         return (
