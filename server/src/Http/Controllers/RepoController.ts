@@ -26,7 +26,6 @@ export const showReposForHelp = async (req: Request, res: Response) => {
     return res.json(repos);
 }
 
-
 export const accepted = async (req: Request, res: Response) => {
     const object = mongoose.Types.ObjectId;
     const repo = await Repo.findOne({ github: req.params['id'] }).populate('owner');

@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 import { Strategy } from 'passport-github';
 import User from '../../Database/Models/User';
 
-if (process.env.DEVM) {
+if (process.env.NODE_ENV !== 'production') {
     dotenv.config();
 }
 

@@ -14,6 +14,7 @@ route.get('/auth/callback', passport.authenticate('github', {
     session: false,
     failureRedirect: '/auth/error',
 }), AuthController.github);
+route.get('/auth/check', passport.authenticate('jwt'), AuthController.jwtInfo);
 
 route.get('/user/repos', passport.authenticate('jwt'), RepoController.showReposForHelp);
 

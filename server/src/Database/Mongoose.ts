@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv';
 import * as mongoose from 'mongoose';
 
-if (process.env.DEVM) {
+if (process.env.NODE_ENV !== 'production') {
     dotenv.config();
 }
 

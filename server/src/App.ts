@@ -4,7 +4,7 @@ import * as express from 'express';
 import Mongoose from './Database/Mongoose';
 import passport from './Passport/Passport';
 
-if (process.env.DEVM) {
+if (process.env.NODE_ENV !== 'production') {
     dotenv.config();
 }
 
