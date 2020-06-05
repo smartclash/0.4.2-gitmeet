@@ -1,7 +1,5 @@
 .idea/*
 .vscode/*
-server/.env
-server/dist/*
-server/node_modules/*
-client/node_modules/*
-client/build/*
+.env
+dist/*
+node_modules/*
