@@ -9,15 +9,14 @@ import {
 import axios from "axios";
 
 class Routers extends React.Component {
-    constructor(props) {
-        super(props);
-        const repos = this.getUserRepos();
-        const user = this.getUserData();
+    async componentDidMount() {
+        const user = await this.getUserData();
+        const repo = await this.getUserRepos();
 
-        console.log(repos);
-        console.log(user);
+        console.log(user.data);
+        console.log(repo.data);
 
-        this.setState({ repos, user });
+        this.setState({ repo: repo.data, user: user.data });
     }
 
     async getUserRepos() {
